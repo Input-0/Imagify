@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 
 const App = () => {
   return <div className="bg-black flex justify-center items-center h-screen">
-    <Register/>
+    <LoginPage/>
   </div>;
 };
 
