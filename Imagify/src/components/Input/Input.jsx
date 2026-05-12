@@ -1,10 +1,12 @@
 import React from "react";
 
-const Input = ({type = "text",name ="",placeholder = "",className ='',...rest }) => {
-  console.log({...rest});
+const Input =  ({type = "text",name ="",placeholder = "",className ='',lname="data",...rest }) => {
+  // console.log({...rest});
   
   return (
-    <input type={type} placeholder={placeholder} name={name} className={`px-6 text-white py-2 border border-gray-300  rounded-sm ${className}` } {...rest}/>
+    <label className="flex flex-col"> {lname}
+    <input type={type} name={name} placeholder={placeholder}   className={`px-6 text-white py-2 border border-gray-300  rounded-sm ${className}` } {...rest}/>
+    </label>
   )
 };
 
