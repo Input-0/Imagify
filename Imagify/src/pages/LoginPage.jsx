@@ -6,6 +6,7 @@ import {useForm} from "react-hook-form"
 import { AuthContext } from "../context/authContext";
 import {nanoid} from "nanoid"
 const LoginPage = () => {
+    let {login}  = AuthContext()
     
     let {register,handleSubmit,formState: { errors }} = useForm()
     // let {registerUser}  = AuthContext()
@@ -13,9 +14,11 @@ const LoginPage = () => {
    
     let loginReq = (data) => {
         // console.log(data);
+        login(data)
+
 
         
-        toast.success("login successfull")
+        
         
 
         
@@ -48,10 +51,7 @@ const LoginPage = () => {
                 {errors.password && <p className="text-red-400">{errors.password.message}</p>}
                     <Input className="p-2 h-[30px]" lname="password" type="password" placeholder="aBc$65234" {...register("password",{
                         required:"password is required",
-                        pattern:{
-                            value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[&^*$#@!])[A-Za-z\d&^*$#@!]{6,20}$/,
-                        message:"enter an valid password"
-                        }
+                        
                         
 
                     })}/>

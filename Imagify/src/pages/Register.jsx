@@ -37,7 +37,7 @@ const Register = () => {
     }
     return (
         <div className="h-[400px] w-[300px] bg-white/ rounded-sm border border-gray-400">
-            <h2 className="text-white text-center text-3xl font-bold tracking-wide mt-5">Login Form</h2>
+            <h2 className="text-white text-center text-3xl font-bold tracking-wide mt-5">Sign up</h2>
 
             <form onSubmit={handleSubmit(registerReq,errorHandle)} className="w-full h-full flex flex-col  items-center gap-4  mt-8 text-white ">
                 <Toaster/>
