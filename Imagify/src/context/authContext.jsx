@@ -13,6 +13,7 @@ let AuthProvider  = ({children}) => {
     let [user,setUser] = useState(() =>{
         return JSON.parse(localStorage.getItem("users")) || []
     })
+    let [currentUser,setCurrentUser] = useState({})
     // useEffect(() =>{
     //     setUser(JSON.parse(localStorage.getItem("users")))
     // },[])
@@ -33,6 +34,9 @@ let AuthProvider  = ({children}) => {
         navigate("/login")
       }else{
         setUser(prev => [...prev,data])
+        navigate("/login")
+
+        
       }
 
 
@@ -43,7 +47,10 @@ let AuthProvider  = ({children}) => {
             
             
         }
-        localStorage.setItem("users",JSON.stringify(user))   
+        useEffect(() =>{
+            localStorage.setItem("users",JSON.stringify(user))  
+
+        },[user]) 
         
     let login = (data) =>{
 
@@ -51,6 +58,7 @@ let AuthProvider  = ({children}) => {
         if(currentUser.length){
             navigate("/home")
             toast.success("login successfull")
+            localStorage.setItem("currentUser",JSON.stringify(currentUser))
             
         }else{
             toast.error("Invalid credential")
@@ -66,9 +74,13 @@ let AuthProvider  = ({children}) => {
         
     }
 
+    useEffect(() =>{
+        setCurrentUser(JSON.parse(localStorage.getItem("currentUser")))
+    },[])
+
 
     return (
-        <Auth.Provider value={{registerUser,logout,login}}>
+        <Auth.Provider value={{registerUser,logout,login,currentUser}}>
             {children}
         </Auth.Provider>
     )

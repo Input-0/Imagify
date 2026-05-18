@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^2.3.0",
     "@tailwindcss/vite": "^4.2.4",
+    "localforage": "^1.10.0",
     "nanoid": "^5.1.11",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
